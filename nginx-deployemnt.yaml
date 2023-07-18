@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "2048-deployment"
+  
+  labels:
+    app: "2048"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "2048"
+  template:
+    metadata:
+      labels:
+        app: "2048"
+    spec:
+      containers:
+      - image: krishnacwa/nginx
+        imagePullPolicy: Always
+        name: "2048"
+        ports:
+        - containerPort: 80
